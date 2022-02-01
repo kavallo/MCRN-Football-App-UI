@@ -15,7 +15,7 @@
       [x] News Section
  */
  
-import React from 'react';
+import React, { version } from 'react';
 import { StatusBar, View, FlatList, ScrollView } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Colors, Fonts, Images } from 'Constants';
@@ -73,7 +73,7 @@ const _renderMatchesItem = ({ item, index }) => {
       <McText bold size={10} style={{ marginTop: 9 }}>
         {item.team1.name}
       </McText>
-      <McText black size={6}>
+      <McText black size={7}>
         vs
       </McText>
       <McText bold size={10}>
@@ -107,11 +107,11 @@ const NewsItem = ({ item, index }) => <View>
 const Discover = ({ navigation }) => (
   <Container>
     <ScrollView contentContainerStyle={{}} style={{}}>
-    <StatusBar hidden={true} />
+    <StatusBar hidden={false} />
     {/* Header Section */}
-    <HeaderSection>
-      <McText semi size={30} style={{ lineHeight: 35 }}>
-        Discover
+      <HeaderSection>
+      <McText semi size={30} style={{ lineHeight: 35, marginTop:35 }}>
+        Lo Nuevo
       </McText>
       <View
         style={{
@@ -119,8 +119,8 @@ const Discover = ({ navigation }) => (
           justifyContent: 'space-between',
         }}
       >
-        <McImage source={Images.Search} style={{ marginRight: 20 }} />
-        <McImage source={Images.Notification} />
+        <McImage source={Images.Search} style={{ marginRight: 20, marginTop:35 }} />
+        <McImage source={Images.Notification} style={{marginTop:35}} />
         <View
           style={{
             width: 10,
@@ -217,10 +217,10 @@ const Discover = ({ navigation }) => (
     {/* Teams Section */}
     <Header2Section>
       <McText semi size={18}>
-        Popular Teams
-      </McText>
-      <McText semi size={9} color="#A0A3BD">
-        VIEW ALL
+        Equipos más populares
+        </McText>
+      <McText semi size={9} color="#A0A3BD" >
+          Ver Todo
       </McText>
     </Header2Section>
     <View>
@@ -236,10 +236,10 @@ const Discover = ({ navigation }) => (
     {/* Matches Section */}
     <Header2Section>
       <McText semi size={18}>
-        Upcoming Matches
+        Próximos Eventos
       </McText>
       <McText semi size={9} color="#A0A3BD">
-        VIEW ALL
+        Ver Todo
       </McText>
     </Header2Section>
     <View>
@@ -255,7 +255,7 @@ const Discover = ({ navigation }) => (
     {/* News Section */}
     <Header2Section>
       <McText semi size={18}>
-        Latest News
+        &Uacute;ltimas Noticias
       </McText>
       <McText semi size={9} color="#A0A3BD">
         VIEW ALL
@@ -280,7 +280,8 @@ const Discover = ({ navigation }) => (
             height: 93,
             marginTop: 15,
             marginLeft: index === 0 ? 16 : 0,
-            marginRight: index === dummyData.length - 1 ? 0 : 10,
+             marginRight: index === dummyData.length - 1 ? 0 : 10,
+            marginBottom:15
           }}>
             <NewsItem item={item} />
           </TouchableOpacity>
@@ -345,3 +346,7 @@ const MediumTeamLogo = styled.Image`
   height: 43px;
 `;
 export default Discover;
+
+function autor() {
+  alert('test');
+}
